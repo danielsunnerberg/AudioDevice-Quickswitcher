@@ -1,9 +1,11 @@
-﻿namespace G930_Quickswitcher.model
+﻿using System;
+
+namespace G930_Quickswitcher.model
 {
     /// <summary>
     /// Represents an audio device in the operating system
     /// </summary>
-    class AudioDevice
+    public class AudioDevice
     {
 
         /// <summary>
@@ -22,5 +24,30 @@
             Details = details;
         }
 
+        public override string ToString()
+        {
+            return String.Format("{0} - {1}", Id, Details);
+        }
+
+        protected bool Equals(AudioDevice other)
+        {
+            return Id == other.Id && string.Equals(Details, other.Details);
+        }
+
+        public override bool Equals(object obj)
+        {
+            if (ReferenceEquals(null, obj)) return false;
+            if (ReferenceEquals(this, obj)) return true;
+            if (obj.GetType() != GetType()) return false;
+            return Equals((AudioDevice) obj);
+        }
+
+        public override int GetHashCode()
+        {
+            unchecked
+            {
+                return (Id*397) ^ Details.GetHashCode();
+            }
+        }
     }
 }
