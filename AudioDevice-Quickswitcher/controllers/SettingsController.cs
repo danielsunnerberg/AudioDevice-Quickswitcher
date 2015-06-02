@@ -33,14 +33,12 @@ namespace AudioDevice_Quickswitcher.controllers
 
         public void SetupDevices()
         {
-            View.Hide();
             new SetupController(_audioDeviceManager).DisplayFirstStep();
         }
 
         public void SetupKeybinds()
         {
-            // TODO
-            throw new NotImplementedException();
+            MessageBox.Show("Not yet implemented. Use CTRL+ALT+F12.");
         }
 
         public void ShouldStartAutomatically(bool status)

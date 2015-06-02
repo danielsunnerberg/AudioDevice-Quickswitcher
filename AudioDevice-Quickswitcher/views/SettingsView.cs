@@ -61,5 +61,10 @@ namespace AudioDevice_Quickswitcher.views
             e.Cancel = true;
         }
 
+        private void setupKeyBinds_Click(object sender, EventArgs e)
+        {
+            _listener.SetupKeybinds();
+        }
+
     }
 }

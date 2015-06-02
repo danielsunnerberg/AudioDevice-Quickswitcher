@@ -33,6 +33,7 @@
             this.titleLabel = new System.Windows.Forms.Label();
             this.continueButton = new System.Windows.Forms.Button();
             this.restartButton = new System.Windows.Forms.Button();
+            this.label1 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // detailsLabel
@@ -75,11 +76,21 @@
             this.restartButton.UseVisualStyleBackColor = true;
             this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(19, 65);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(310, 13);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "You can now switch through devices using the chosen shortcut.";
+            // 
             // DeviceFoundView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 312);
+            this.Controls.Add(this.label1);
             this.Controls.Add(this.restartButton);
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.detailsLabel);
@@ -98,5 +109,6 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button continueButton;
         private System.Windows.Forms.Button restartButton;
+        private System.Windows.Forms.Label label1;
     }
 }

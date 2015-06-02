@@ -57,6 +57,7 @@
             this.setupKeyBinds.TabIndex = 2;
             this.setupKeyBinds.Text = "Setup keybinds";
             this.setupKeyBinds.UseVisualStyleBackColor = true;
+            this.setupKeyBinds.Click += new System.EventHandler(this.setupKeyBinds_Click);
             // 
             // automaticStartupCheckbox
             // 
