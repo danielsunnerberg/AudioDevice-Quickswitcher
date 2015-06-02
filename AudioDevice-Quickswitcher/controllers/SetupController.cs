@@ -9,7 +9,7 @@ using AudioDevice_Quickswitcher.views;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class SetupController : IDeviceDisconnectedListener
+    class SetupController : Controller, IDeviceDisconnectedListener
     {
         private readonly AudioDeviceManager _audioDeviceManager = new AudioDeviceManager(@"dependencies/EndPointController_forked.exe");
         private readonly Timer _reconnectTimer = new Timer();

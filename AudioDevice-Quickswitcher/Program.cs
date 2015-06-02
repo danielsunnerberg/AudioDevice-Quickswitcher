@@ -15,8 +15,24 @@ namespace AudioDevice_Quickswitcher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            //new SettingsController().ShowView();
-            new DeviceSwitchController().ListenForSwitchRequest();
+            var deviceSwitchController = new DeviceSwitchController();
+            deviceSwitchController.ListenForSwitchRequest();
+
+            var settingsController = new SettingsController();
+
+            Application.Run(new MultipleForms(deviceSwitchController.view, settingsController.view));
         }
     }
+
+    internal class MultipleForms : ApplicationContext
+    {
+        public MultipleForms(params Form[] forms)
+        {
+            foreach (var form in forms)
+            {
+                form.Show();
+            }
+        }
+    }
+
 }

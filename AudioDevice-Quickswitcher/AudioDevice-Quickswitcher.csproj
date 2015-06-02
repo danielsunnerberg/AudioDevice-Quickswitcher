@@ -67,6 +67,7 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>ChosenAudioDevices.settings</DependentUpon>
     </Compile>
+    <Compile Include="controllers\Controller.cs" />
     <Compile Include="controllers\DeviceDisconnectedListener.cs" />
     <Compile Include="controllers\DeviceSwitchController.cs" />
     <Compile Include="controllers\SettingsController.cs" />

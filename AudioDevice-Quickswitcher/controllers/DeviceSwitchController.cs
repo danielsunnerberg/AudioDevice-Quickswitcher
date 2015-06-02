@@ -4,15 +4,16 @@ using AudioDevice_Quickswitcher.utilities.keyboardHook;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class DeviceSwitchController : IKeyboardListener
+    class DeviceSwitchController : Controller, IKeyboardListener
     {
         public void ListenForSwitchRequest()
         {
             ModifierKeys modifierKeys = ModifierKeys.Control | ModifierKeys.Alt;
             Keys hotKey = Keys.F12;
+            view = new KeyboardHookView(this, modifierKeys, hotKey);
 
-            var keyboardHookView = new KeyboardHookView(this, modifierKeys, hotKey);
-            Application.Run(keyboardHookView);
+            view.WindowState = FormWindowState.Minimized;
+            view.ShowInTaskbar = false;
         }
 
         public void HotKeyPressed()

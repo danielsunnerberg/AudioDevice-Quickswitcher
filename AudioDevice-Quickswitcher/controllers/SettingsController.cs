@@ -8,20 +8,16 @@ using AudioDevice_Quickswitcher.views;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class SettingsController : ISetupListener
+    class SettingsController : Controller, ISetupListener
     {
-
-        private SettingsView settingsView;
-
-        public void ShowView()
+        public SettingsController()
         {
-            settingsView = new SettingsView(this);
-            Application.Run(settingsView);
+            view = new SettingsView(this);
         }
 
         public void SetupDevices()
         {
-            settingsView.Hide();
+            view.Hide();
             new SetupController().DisplayFirstStep();
         }
 
