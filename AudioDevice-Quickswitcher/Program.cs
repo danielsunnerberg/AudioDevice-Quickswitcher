@@ -15,7 +15,7 @@ namespace AudioDevice_Quickswitcher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            new SetupController();
+            new SetupController().DisplayFirstStep()
         }
     }
 }

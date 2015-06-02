@@ -44,7 +44,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="controllers\setup\DeviceDisconnectedListener.cs" />
+    <Compile Include="ChosenAudioDevices.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>ChosenAudioDevices.settings</DependentUpon>
+    </Compile>
+    <Compile Include="views\DeviceDisconnectedListener.cs" />
     <Compile Include="controllers\setup\SetupController.cs" />
     <Compile Include="model\AudioDevices.cs" />
     <Compile Include="utilities\AudioDeviceManager.cs" />
@@ -89,6 +94,10 @@
     <EmbeddedResource Include="views\ReconnectDeviceView.resx">
       <DependentUpon>ReconnectDeviceView.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="ChosenAudioDevices.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>ChosenAudioDevices.Designer.cs</LastGenOutput>
+    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

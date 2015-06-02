@@ -30,7 +30,8 @@
         {
             this.detailsLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
+            this.continueButton = new System.Windows.Forms.Button();
+            this.restartButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // detailsLabel
@@ -48,25 +49,38 @@
             this.titleLabel.Font = new System.Drawing.Font("Tahoma", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLabel.Location = new System.Drawing.Point(12, 9);
             this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(401, 39);
+            this.titleLabel.Size = new System.Drawing.Size(248, 39);
             this.titleLabel.TabIndex = 4;
-            this.titleLabel.Text = "Reconnect your headset";
+            this.titleLabel.Text = "Headset found";
             // 
-            // button1
+            // continueButton
             // 
-            this.button1.Location = new System.Drawing.Point(397, 277);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 6;
-            this.button1.Text = "Finish";
-            this.button1.UseVisualStyleBackColor = true;
+            this.continueButton.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.continueButton.Location = new System.Drawing.Point(397, 277);
+            this.continueButton.Name = "continueButton";
+            this.continueButton.Size = new System.Drawing.Size(75, 23);
+            this.continueButton.TabIndex = 6;
+            this.continueButton.Text = "Finish";
+            this.continueButton.UseVisualStyleBackColor = true;
+            this.continueButton.Click += new System.EventHandler(this.continueButton_Click);
+            // 
+            // restartButton
+            // 
+            this.restartButton.Location = new System.Drawing.Point(12, 277);
+            this.restartButton.Name = "restartButton";
+            this.restartButton.Size = new System.Drawing.Size(75, 23);
+            this.restartButton.TabIndex = 7;
+            this.restartButton.Text = "Try again";
+            this.restartButton.UseVisualStyleBackColor = true;
+            this.restartButton.Click += new System.EventHandler(this.restartButton_Click);
             // 
             // DeviceFoundView
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 312);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.restartButton);
+            this.Controls.Add(this.continueButton);
             this.Controls.Add(this.detailsLabel);
             this.Controls.Add(this.titleLabel);
             this.Name = "DeviceFoundView";
@@ -80,6 +94,7 @@
 
         private System.Windows.Forms.Label detailsLabel;
         private System.Windows.Forms.Label titleLabel;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button continueButton;
+        private System.Windows.Forms.Button restartButton;
     }
 }

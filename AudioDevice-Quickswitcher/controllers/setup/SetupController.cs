@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.Properties;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
 
@@ -11,8 +12,10 @@ namespace AudioDevice_Quickswitcher.controllers.setup
     class SetupController : IDeviceDisconnectedListener
     {
         private readonly AudioDeviceManager _audioDeviceManager = new AudioDeviceManager(@"dependencies/EndPointController_forked.exe");
-        private IList<AudioDevice> _preConnectAudioDevices;
         private readonly Timer _reconnectTimer = new Timer();
+
+        private IList<AudioDevice> _preConnectAudioDevices;
+        private AudioDevice _detectedAudioDevice;
 
         private Form _currentView;
 
@@ -20,18 +23,26 @@ namespace AudioDevice_Quickswitcher.controllers.setup
         {
             _reconnectTimer.Tick += ListenForReconnect;
             _reconnectTimer.Interval = 300;
+        }
 
-            _currentView = new DisconnectDeviceView(this);
-            
-            Application.Run(_currentView);
-
+        public void DisplayFirstStep()
+        {
+            ChangeView(new DisconnectDeviceView(this));
         }
 
         private void ChangeView(Form newForm)
         {
-            _currentView.Hide();
-            _currentView = newForm;
-            _currentView.Show();
+            if (_currentView == null)
+            {
+                _currentView = newForm;
+                Application.Run(_currentView);
+            }
+            else
+            {
+                _currentView.Hide();
+                _currentView = newForm;
+                _currentView.Show();
+            }
         }
 
         public void DeviceDisconnected()
@@ -48,17 +59,28 @@ namespace AudioDevice_Quickswitcher.controllers.setup
             if (_preConnectAudioDevices.Count != connectedDevices.Count)
             {
                 // A new device has been connected, it's the one we're searching for
-                AudioDevice foundDevice = connectedDevices.Except(_preConnectAudioDevices).First();
+                _detectedAudioDevice = connectedDevices.Except(_preConnectAudioDevices).First();
                 _reconnectTimer.Stop();
 
-                DeviceFound(foundDevice);
+                DeviceFound();
             }
         }
 
-        private void DeviceFound(AudioDevice device)
+        private void DeviceFound()
         {
-            // TODO save it
-            ChangeView(new DeviceFoundView(device));
+            ChangeView(new DeviceFoundView(_detectedAudioDevice, SaveFoundDevice, DisplayFirstStep));
         }
+
+        private void SaveFoundDevice()
+        {
+            AudioDevice originalDefaultDevice = _preConnectAudioDevices.First(d => d.IsDefault);
+
+            ChosenAudioDevices.Default.originalDefaultDeviceId = originalDefaultDevice.DeviceId;
+            ChosenAudioDevices.Default.alternateDefaultDeviceId = _detectedAudioDevice.DeviceId;
+            ChosenAudioDevices.Default.Save();
+
+            _currentView.Hide();
+        }
+
     }
 }
