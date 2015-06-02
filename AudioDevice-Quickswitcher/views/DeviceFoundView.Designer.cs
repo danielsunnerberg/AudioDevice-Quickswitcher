@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DeviceFoundView));
             this.detailsLabel = new System.Windows.Forms.Label();
             this.titleLabel = new System.Windows.Forms.Label();
             this.continueButton = new System.Windows.Forms.Button();
@@ -83,6 +84,7 @@
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.detailsLabel);
             this.Controls.Add(this.titleLabel);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DeviceFoundView";
             this.Text = "Setup: Complete";
             this.ResumeLayout(false);

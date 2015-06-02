@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
+using AudioDevice_Quickswitcher.controllers.setup;
 using AudioDevice_Quickswitcher.model;
-using AudioDevice_Quickswitcher.Properties;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
 
-namespace AudioDevice_Quickswitcher.controllers.setup
+namespace AudioDevice_Quickswitcher.controllers
 {
     class SetupController : IDeviceDisconnectedListener
     {
@@ -32,17 +32,12 @@ namespace AudioDevice_Quickswitcher.controllers.setup
 
         private void ChangeView(Form newForm)
         {
-            if (_currentView == null)
-            {
-                _currentView = newForm;
-                Application.Run(_currentView);
-            }
-            else
+            if (_currentView != null)
             {
                 _currentView.Hide();
-                _currentView = newForm;
-                _currentView.Show();
             }
+            _currentView = newForm;
+            _currentView.Show();
         }
 
         public void DeviceDisconnected()

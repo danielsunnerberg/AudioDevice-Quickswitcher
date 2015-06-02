@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(DisconnectDeviceView));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.continueButton = new System.Windows.Forms.Button();
@@ -71,6 +72,7 @@
             this.Controls.Add(this.continueButton);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "DisconnectDeviceView";
             this.Text = "Setup: Disconnect headset";
             this.ResumeLayout(false);
