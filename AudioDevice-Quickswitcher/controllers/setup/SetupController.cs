@@ -10,7 +10,7 @@ namespace AudioDevice_Quickswitcher.controllers.setup
 {
     class SetupController : IDeviceDisconnectedListener
     {
-        private readonly AudioDeviceManager _audioDeviceManager = new AudioDeviceManager();
+        private readonly AudioDeviceManager _audioDeviceManager = new AudioDeviceManager(@"dependencies/EndPointController_forked.exe");
         private IList<AudioDevice> _preConnectAudioDevices;
         private readonly Timer _reconnectTimer = new Timer();
 

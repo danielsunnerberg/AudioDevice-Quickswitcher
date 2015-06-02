@@ -11,14 +11,13 @@ namespace AudioDevice_Quickswitcher.utilities
     class AudioDeviceManager
     {
 
-        private static readonly string AUDIO_SERVICE_PATH = @"dependencies/EndPointController_forked.exe";
         private static readonly string SERVICE_OUTPUT_FORMAT = "%d|%ws";
         
         private readonly ProcessExecutor _processExecutor;
 
-        public AudioDeviceManager()
+        public AudioDeviceManager(string endPointControllerPath)
         {
-            _processExecutor = new ProcessExecutor(AUDIO_SERVICE_PATH);
+            _processExecutor = new ProcessExecutor(endPointControllerPath);
         }
 
         private AudioDevice GetDevice(string deviceString)
