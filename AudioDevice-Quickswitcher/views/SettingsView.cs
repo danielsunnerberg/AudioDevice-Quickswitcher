@@ -14,6 +14,11 @@ namespace AudioDevice_Quickswitcher.views
 
             automaticStartupCheckbox.Checked = autorunEnabled;
 
+            ContextMenu contextMenu = new ContextMenu();
+            contextMenu.MenuItems.Add("Settings", (sender, args) => MaximizeFromTray());
+            contextMenu.MenuItems.Add("Exit", (sender, args) => listener.ExitProgram());
+            notifyIcon.ContextMenu = contextMenu;
+
             // We want the program to remain completely hidden by default, except for the icon in the tray bar
             HideToTray();
         }
@@ -26,6 +31,15 @@ namespace AudioDevice_Quickswitcher.views
             Opacity = 0;
         }
 
+        private void MaximizeFromTray()
+        {
+            WindowState = FormWindowState.Normal;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            ShowInTaskbar = true;
+            Opacity = 100;
+            Show();
+        }
+
         private void setupDevices_Click(object sender, EventArgs e)
         {
             _listener.SetupDevices();
@@ -33,11 +47,7 @@ namespace AudioDevice_Quickswitcher.views
 
         private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
         {
-            WindowState = FormWindowState.Normal;
-            FormBorderStyle = FormBorderStyle.FixedToolWindow;
-            ShowInTaskbar = true;
-            Opacity = 100;
-            Show();
+            MaximizeFromTray();
         }
 
         private void automaticStartupCheckbox_CheckedChanged(object sender, EventArgs e)
