@@ -1,53 +1,60 @@
 ﻿using System;
+using System.Xml.Serialization;
 
 namespace AudioDevice_Quickswitcher.model
 {
     /// <summary>
-    /// Represents an audio device in the operating system
+    /// Represents an audio device in Microsoft Windows 7+.
+    /// Since the class will usually be created through a serializer the class cannot be immmutable.
     /// </summary>
     public class AudioDevice
     {
+        
+        /// <summary>
+        /// Windows internal index of the device.
+        /// Is likely to change when disconnected.
+        /// </summary>
+        [XmlElement("index")]
+        public int Index { get; set; }
+
+        [XmlElement("friendlyName")]
+        public string FriendlyName { get; set; }
+
+        [XmlElement("state")]
+        public int State { get; set; }
 
         /// <summary>
-        /// The devices internal id.
+        /// Flag for whether the device is the system default or not.
         /// </summary>
-        public int Id { get; private set; }
+        [XmlElement("default")]
+        public bool IsDefault { get; set; }
 
-        /// <summary>
-        /// A string including the friendly name, driver name and such.
-        /// </summary>
-        public string Details { get; private set; }
+        [XmlElement("description")]
+        public string Description { get; set; }
 
-        public AudioDevice(int id, string details)
-        {
-            Id = id;
-            Details = details;
-        }
+        [XmlElement("interfaceFriendlyName")]
+        public string InterfaceFriendlyName { get; set; }
 
-        public override string ToString()
-        {
-            return String.Format("{0} - {1}", Id, Details);
-        }
+        [XmlElement("deviceId")]
+        public string DeviceId { get; set; }
 
         protected bool Equals(AudioDevice other)
         {
-            return Id == other.Id && string.Equals(Details, other.Details);
+            return string.Equals(DeviceId, other.DeviceId);
         }
 
         public override bool Equals(object obj)
         {
             if (ReferenceEquals(null, obj)) return false;
             if (ReferenceEquals(this, obj)) return true;
-            if (obj.GetType() != GetType()) return false;
+            if (obj.GetType() != this.GetType()) return false;
             return Equals((AudioDevice) obj);
         }
 
         public override int GetHashCode()
         {
-            unchecked
-            {
-                return (Id*397) ^ Details.GetHashCode();
-            }
+            return (DeviceId != null ? DeviceId.GetHashCode() : 0);
         }
+
     }
 }
