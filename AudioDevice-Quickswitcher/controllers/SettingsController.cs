@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Windows.Forms;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
+using Microsoft.Win32;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
@@ -8,11 +10,13 @@ namespace AudioDevice_Quickswitcher.controllers
     {
 
         private readonly AudioDeviceManager _audioDeviceManager;
+        private readonly RegistryKey _autostartRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
         public SettingsController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
-            View = new SettingsView(this);
+            bool autorunEnabled = _autostartRegistryKey.GetValue("ApplicationName") != null;
+            View = new SettingsView(autorunEnabled, this);
         }
 
         public void SetupDevices()
@@ -23,12 +27,31 @@ namespace AudioDevice_Quickswitcher.controllers
 
         public void SetupKeybinds()
         {
+            // TODO
             throw new NotImplementedException();
         }
 
         public void ShouldStartAutomatically(bool status)
         {
-            throw new NotImplementedException();
+            ChangeAutoStartStatus(status);
         }
+
+        private void ChangeAutoStartStatus(bool status)
+        {
+            if (status)
+            {
+                _autostartRegistryKey.SetValue("ApplicationName", Application.ExecutablePath);
+            }
+            else
+            {
+                _autostartRegistryKey.DeleteValue("ApplicationName");
+            }
+        }
+
+        public void ExitProgram()
+        {
+            Application.Exit();
+        }
+
     }
 }

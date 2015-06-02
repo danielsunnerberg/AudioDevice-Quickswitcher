@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AudioDevice_Quickswitcher.controllers.setup;
 using AudioDevice_Quickswitcher.model;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
