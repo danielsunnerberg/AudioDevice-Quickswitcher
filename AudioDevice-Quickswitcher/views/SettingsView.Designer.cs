@@ -32,7 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SettingsView));
             this.setupDevices = new System.Windows.Forms.Button();
             this.setupKeyBinds = new System.Windows.Forms.Button();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.automaticStartupCheckbox = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.notifyIcon = new System.Windows.Forms.NotifyIcon(this.components);
             this.SuspendLayout();
@@ -58,15 +58,16 @@
             this.setupKeyBinds.Text = "Setup keybinds";
             this.setupKeyBinds.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // automaticStartupCheckbox
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(12, 51);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(153, 17);
-            this.checkBox1.TabIndex = 3;
-            this.checkBox1.Text = "Start program automatically";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.automaticStartupCheckbox.AutoSize = true;
+            this.automaticStartupCheckbox.Location = new System.Drawing.Point(12, 51);
+            this.automaticStartupCheckbox.Name = "automaticStartupCheckbox";
+            this.automaticStartupCheckbox.Size = new System.Drawing.Size(180, 17);
+            this.automaticStartupCheckbox.TabIndex = 3;
+            this.automaticStartupCheckbox.Text = "Start program at windows startup";
+            this.automaticStartupCheckbox.UseVisualStyleBackColor = true;
+            this.automaticStartupCheckbox.CheckedChanged += new System.EventHandler(this.automaticStartupCheckbox_CheckedChanged);
             // 
             // label1
             // 
@@ -91,12 +92,13 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(296, 116);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.automaticStartupCheckbox);
             this.Controls.Add(this.setupKeyBinds);
             this.Controls.Add(this.setupDevices);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SettingsView";
             this.Text = "AudioDevice Quickswitcher";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -106,7 +108,7 @@
 
         private System.Windows.Forms.Button setupDevices;
         private System.Windows.Forms.Button setupKeyBinds;
-        private System.Windows.Forms.CheckBox checkBox1;
+        private System.Windows.Forms.CheckBox automaticStartupCheckbox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.NotifyIcon notifyIcon;
     }
