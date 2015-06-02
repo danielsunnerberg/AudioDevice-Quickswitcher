@@ -23,7 +23,7 @@ namespace AudioDevice_Quickswitcher.views
             HideToTray();
         }
 
-        private void HideToTray()
+        public void HideToTray()
         {
             WindowState = FormWindowState.Minimized;
             FormBorderStyle = FormBorderStyle.SizableToolWindow;
@@ -31,7 +31,7 @@ namespace AudioDevice_Quickswitcher.views
             Opacity = 0;
         }
 
-        private void MaximizeFromTray()
+        public void MaximizeFromTray()
         {
             WindowState = FormWindowState.Normal;
             FormBorderStyle = FormBorderStyle.FixedToolWindow;
