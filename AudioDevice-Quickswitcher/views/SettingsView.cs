@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace AudioDevice_Quickswitcher.views
@@ -18,6 +11,11 @@ namespace AudioDevice_Quickswitcher.views
         {
             _listener = listener;
             InitializeComponent();
+
+            // We want the program to remain completely hidden by default, except for the icon in the tray bar
+            WindowState = FormWindowState.Minimized;
+            FormBorderStyle = FormBorderStyle.SizableToolWindow;
+            ShowInTaskbar = false;
         }
 
         private void setupDevices_Click(object sender, EventArgs e)
