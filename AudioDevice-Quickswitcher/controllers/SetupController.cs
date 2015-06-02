@@ -11,7 +11,7 @@ namespace AudioDevice_Quickswitcher.controllers
 {
     class SetupController : Controller, IDeviceDisconnectedListener
     {
-        private readonly AudioDeviceManager _audioDeviceManager = new AudioDeviceManager(@"dependencies/EndPointController_forked.exe");
+        private readonly AudioDeviceManager _audioDeviceManager;
         private readonly Timer _reconnectTimer = new Timer();
 
         private IList<AudioDevice> _preConnectAudioDevices;
@@ -19,8 +19,9 @@ namespace AudioDevice_Quickswitcher.controllers
 
         private Form _currentView;
 
-        public SetupController()
+        public SetupController(AudioDeviceManager audioDeviceManager)
         {
+            _audioDeviceManager = audioDeviceManager;
             _reconnectTimer.Tick += ListenForReconnect;
             _reconnectTimer.Interval = 300;
         }

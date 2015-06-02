@@ -1,24 +1,24 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
     class SettingsController : Controller, ISetupListener
     {
-        public SettingsController()
+
+        private readonly AudioDeviceManager _audioDeviceManager;
+
+        public SettingsController(AudioDeviceManager audioDeviceManager)
         {
+            this._audioDeviceManager = audioDeviceManager;
             view = new SettingsView(this);
         }
 
         public void SetupDevices()
         {
             view.Hide();
-            new SetupController().DisplayFirstStep();
+            new SetupController(_audioDeviceManager).DisplayFirstStep();
         }
 
         public void SetupKeybinds()

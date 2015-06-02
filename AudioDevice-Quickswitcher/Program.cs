@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using AudioDevice_Quickswitcher.controllers;
+using AudioDevice_Quickswitcher.utilities;
 
 namespace AudioDevice_Quickswitcher
 {
@@ -15,10 +16,12 @@ namespace AudioDevice_Quickswitcher
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
 
-            var deviceSwitchController = new DeviceSwitchController();
+            AudioDeviceManager audioDeviceManager = new AudioDeviceManager(@"dependencies/EndPointController_forked.exe");
+
+            var deviceSwitchController = new DeviceSwitchController(audioDeviceManager);
             deviceSwitchController.ListenForSwitchRequest();
 
-            var settingsController = new SettingsController();
+            var settingsController = new SettingsController(audioDeviceManager);
 
             Application.Run(new MultipleForms(deviceSwitchController.view, settingsController.view));
         }

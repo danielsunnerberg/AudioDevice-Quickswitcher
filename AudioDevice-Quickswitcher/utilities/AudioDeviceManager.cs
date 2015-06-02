@@ -36,9 +36,9 @@ namespace AudioDevice_Quickswitcher.utilities
             return devicesWrapper.Devices;
         }
 
-        public void SetDeviceAsDefaultPlayback(AudioDevice audioDevice)
+        public void SetDeviceAsDefault(AudioDevice audioDevice)
         {
-            // TODO
+            _processExecutor.Start(string.Format(" {0}", audioDevice.Index));
         }
     }
 }
