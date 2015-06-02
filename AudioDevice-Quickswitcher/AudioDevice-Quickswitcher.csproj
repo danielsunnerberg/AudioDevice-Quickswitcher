@@ -68,6 +68,7 @@
       <DependentUpon>ChosenAudioDevices.settings</DependentUpon>
     </Compile>
     <Compile Include="controllers\DeviceDisconnectedListener.cs" />
+    <Compile Include="controllers\DeviceSwitchController.cs" />
     <Compile Include="controllers\SettingsController.cs" />
     <Compile Include="controllers\SetupController.cs" />
     <Compile Include="model\AudioDevices.cs" />
@@ -75,6 +76,15 @@
     <Compile Include="model\AudioDevice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="utilities\keyboardHook\KeyboardHook.cs" />
+    <Compile Include="utilities\keyboardHook\IKeyboardListener.cs" />
+    <Compile Include="utilities\keyboardHook\KeyboardHookView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="utilities\keyboardHook\KeyboardHookView.Designer.cs">
+      <DependentUpon>KeyboardHookView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="utilities\keyboardHook\ModifierKeys.cs" />
     <Compile Include="utilities\ProcessExecutor.cs" />
     <Compile Include="views\DeviceFoundView.cs">
       <SubType>Form</SubType>
@@ -111,6 +121,9 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="utilities\keyboardHook\KeyboardHookView.resx">
+      <DependentUpon>KeyboardHookView.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="views\DeviceFoundView.resx">
       <DependentUpon>DeviceFoundView.cs</DependentUpon>
     </EmbeddedResource>
