@@ -1,4 +1,4 @@
-﻿namespace AudioDevice_Quickswitcher.controllers.setup
+﻿namespace AudioDevice_Quickswitcher.views
 {
     public interface IDeviceDisconnectedListener
     {

@@ -11,13 +11,13 @@ namespace AudioDevice_Quickswitcher.controllers
 
         public SettingsController(AudioDeviceManager audioDeviceManager)
         {
-            this._audioDeviceManager = audioDeviceManager;
-            view = new SettingsView(this);
+            _audioDeviceManager = audioDeviceManager;
+            View = new SettingsView(this);
         }
 
         public void SetupDevices()
         {
-            view.Hide();
+            View.Hide();
             new SetupController(_audioDeviceManager).DisplayFirstStep();
         }
 

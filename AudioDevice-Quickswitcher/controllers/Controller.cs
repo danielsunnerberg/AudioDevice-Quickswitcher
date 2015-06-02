@@ -4,6 +4,6 @@ namespace AudioDevice_Quickswitcher.controllers
 {
     public abstract class Controller
     {
-        public Form view { get; protected set; }
+        public Form View { get; protected set; }
     }
 }

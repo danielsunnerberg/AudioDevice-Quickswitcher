@@ -26,7 +26,7 @@ namespace AudioDevice_Quickswitcher.utilities.keyboardHook
             public Window()
             {
                 // create the handle for the window.
-                this.CreateHandle(new CreateParams());
+                CreateHandle(new CreateParams());
             }
 
             /// <summary>
@@ -56,13 +56,13 @@ namespace AudioDevice_Quickswitcher.utilities.keyboardHook
 
             public void Dispose()
             {
-                this.DestroyHandle();
+                DestroyHandle();
             }
 
             #endregion
         }
 
-        private Window _window = new Window();
+        private readonly Window _window = new Window();
         private int _currentId;
 
         public KeyboardHook()
@@ -117,8 +117,8 @@ namespace AudioDevice_Quickswitcher.utilities.keyboardHook
     /// </summary>
     public class KeyPressedEventArgs : EventArgs
     {
-        private ModifierKeys _modifier;
-        private Keys _key;
+        private readonly ModifierKeys _modifier;
+        private readonly Keys _key;
 
         internal KeyPressedEventArgs(ModifierKeys modifier, Keys key)
         {

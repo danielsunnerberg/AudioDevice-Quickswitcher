@@ -23,5 +23,13 @@ namespace AudioDevice_Quickswitcher.views
             _listener.SetupDevices();
         }
 
+        private void notifyIcon_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            WindowState = FormWindowState.Normal;
+            FormBorderStyle = FormBorderStyle.FixedToolWindow;
+            ShowInTaskbar = true;
+            Show();
+        }
+
     }
 }
