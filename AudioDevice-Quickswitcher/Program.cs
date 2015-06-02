@@ -22,19 +22,7 @@ namespace AudioDevice_Quickswitcher
             deviceSwitchController.ListenForSwitchRequest();
 
             var settingsController = new SettingsController(audioDeviceManager);
-
-            Application.Run(new MultipleForms(deviceSwitchController.view, settingsController.view));
-        }
-    }
-
-    internal class MultipleForms : ApplicationContext
-    {
-        public MultipleForms(params Form[] forms)
-        {
-            foreach (var form in forms)
-            {
-                form.Show();
-            }
+            Application.Run(settingsController.view);
         }
     }
 

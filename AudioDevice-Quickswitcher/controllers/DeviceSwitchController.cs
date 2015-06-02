@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 using AudioDevice_Quickswitcher.model;
@@ -7,10 +8,11 @@ using AudioDevice_Quickswitcher.utilities.keyboardHook;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class DeviceSwitchController : Controller, IKeyboardListener
+    class DeviceSwitchController
     {
 
         private readonly AudioDeviceManager _audioDeviceManager;
+        private readonly KeyboardHook _hook = new KeyboardHook();
 
         public DeviceSwitchController(AudioDeviceManager audioDeviceManager)
         {
@@ -19,15 +21,16 @@ namespace AudioDevice_Quickswitcher.controllers
 
         public void ListenForSwitchRequest()
         {
+            // TODO support others
             ModifierKeys modifierKeys = ModifierKeys.Control | ModifierKeys.Alt;
             Keys hotKey = Keys.F12;
-            view = new KeyboardHookView(this, modifierKeys, hotKey);
+            //view = new KeyboardHookView(this, modifierKeys, hotKey);
 
-            view.WindowState = FormWindowState.Minimized;
-            view.ShowInTaskbar = false;
+            _hook.KeyPressed += HotKeyPressed;
+            _hook.RegisterHotKey(modifierKeys, hotKey);
         }
 
-        public void HotKeyPressed()
+        public void HotKeyPressed(object sender, KeyPressedEventArgs e)
         {
             SwitchAudioDevice();
         }
@@ -42,5 +45,6 @@ namespace AudioDevice_Quickswitcher.controllers
             AudioDevice audioDevice = devices.First(d => (d.DeviceId == defaultDeviceId || d.DeviceId == alternateDeviceId) && !d.IsDefault);
             _audioDeviceManager.SetDeviceAsDefault(audioDevice);
         }
+
     }
 }
