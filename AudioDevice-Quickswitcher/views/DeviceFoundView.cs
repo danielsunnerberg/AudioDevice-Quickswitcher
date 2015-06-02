@@ -16,7 +16,7 @@ namespace AudioDevice_Quickswitcher.views
         public DeviceFoundView(AudioDevice deviceFound)
         {
             InitializeComponent();
-            detailsLabel.Text += deviceFound.Details;
+            detailsLabel.Text += deviceFound.FriendlyName;
         }
     }
 }

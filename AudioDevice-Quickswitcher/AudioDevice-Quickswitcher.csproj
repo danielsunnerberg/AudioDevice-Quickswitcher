@@ -46,6 +46,7 @@
   <ItemGroup>
     <Compile Include="controllers\setup\DeviceDisconnectedListener.cs" />
     <Compile Include="controllers\setup\SetupController.cs" />
+    <Compile Include="model\AudioDevices.cs" />
     <Compile Include="utilities\AudioDeviceManager.cs" />
     <Compile Include="model\AudioDevice.cs" />
     <Compile Include="Program.cs" />
