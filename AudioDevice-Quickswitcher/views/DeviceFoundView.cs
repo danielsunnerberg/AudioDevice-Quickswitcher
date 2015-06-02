@@ -7,19 +7,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using AudioDevice_Quickswitcher.model;
 
-namespace G930_Quickswitcher.views
+namespace AudioDevice_Quickswitcher.views
 {
-    public partial class ReconnectDeviceView : Form
+    public partial class DeviceFoundView : Form
     {
-        public ReconnectDeviceView()
+        public DeviceFoundView(AudioDevice deviceFound)
         {
             InitializeComponent();
-        }
-
-        private void button2_Click(object sender, EventArgs e)
-        {
-
+            detailsLabel.Text += deviceFound.Details;
         }
     }
 }

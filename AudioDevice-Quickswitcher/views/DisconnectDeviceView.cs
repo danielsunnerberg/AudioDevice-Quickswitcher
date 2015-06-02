@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using G930_Quickswitcher.controllers.setup;
+using AudioDevice_Quickswitcher.controllers.setup;
 
-namespace G930_Quickswitcher.views
+namespace AudioDevice_Quickswitcher.views
 {
     public partial class DisconnectDeviceView : Form
     {

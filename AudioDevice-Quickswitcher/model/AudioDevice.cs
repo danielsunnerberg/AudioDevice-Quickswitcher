@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace G930_Quickswitcher.model
+namespace AudioDevice_Quickswitcher.model
 {
     /// <summary>
     /// Represents an audio device in the operating system

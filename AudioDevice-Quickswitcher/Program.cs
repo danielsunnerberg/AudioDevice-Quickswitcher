@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using G930_Quickswitcher.controllers.setup;
+using AudioDevice_Quickswitcher.controllers.setup;
 
-namespace G930_Quickswitcher
+namespace AudioDevice_Quickswitcher
 {
     static class Program
     {

@@ -1,6 +1,6 @@
 ﻿using System.Diagnostics;
 
-namespace G930_Quickswitcher.utilities
+namespace AudioDevice_Quickswitcher.utilities
 {
     /// <summary>
     /// Provides methods to interact with a process.

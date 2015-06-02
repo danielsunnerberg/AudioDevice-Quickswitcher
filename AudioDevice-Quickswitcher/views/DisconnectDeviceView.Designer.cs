@@ -1,4 +1,4 @@
-﻿namespace G930_Quickswitcher.views
+﻿namespace AudioDevice_Quickswitcher.views
 {
     partial class DisconnectDeviceView
     {

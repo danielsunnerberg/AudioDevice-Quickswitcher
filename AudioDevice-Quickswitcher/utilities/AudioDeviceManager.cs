@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using G930_Quickswitcher.model;
+using AudioDevice_Quickswitcher.model;
 
-namespace G930_Quickswitcher.utilities
+namespace AudioDevice_Quickswitcher.utilities
 {
     /// <summary>
     /// Manages the operating system's audio devices by wrapping Dan Steven's AudioEndPointController (https://github.com/DanStevens/AudioEndPointController).

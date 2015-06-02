@@ -2,11 +2,11 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using G930_Quickswitcher.model;
-using G930_Quickswitcher.utilities;
-using G930_Quickswitcher.views;
+using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.utilities;
+using AudioDevice_Quickswitcher.views;
 
-namespace G930_Quickswitcher.controllers.setup
+namespace AudioDevice_Quickswitcher.controllers.setup
 {
     class SetupController : IDeviceDisconnectedListener
     {
