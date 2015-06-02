@@ -57,6 +57,11 @@ namespace AudioDevice_Quickswitcher.views
 
         private void Form_Closing(object sender, FormClosingEventArgs e)
         {
+            if (e.CloseReason == CloseReason.WindowsShutDown)
+            {
+                return;
+            }
+
             HideToTray();
             e.Cancel = true;
         }
