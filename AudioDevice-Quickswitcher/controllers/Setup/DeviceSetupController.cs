@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Windows.Forms;
 using AudioDevice_Quickswitcher.controllers;
@@ -57,7 +58,14 @@ namespace AudioDevice_Quickswitcher.Controllers.Setup
             _preConnectAudioDevices = _audioDeviceManager.GetDevices();
             _reconnectTimer.Start();
 
-            ChangeView(new ReconnectDeviceView());
+            var reconnectDeviceView = new ReconnectDeviceView();
+            reconnectDeviceView.FormClosed += CancelWizard;
+            ChangeView(reconnectDeviceView);
+        }
+
+        private void CancelWizard(object sender = null, FormClosedEventArgs formClosedEventArgs = null)
+        {
+            _reconnectTimer.Stop();
         }
 
         private void ListenForReconnect(object sender, EventArgs eventArgs)
@@ -75,7 +83,13 @@ namespace AudioDevice_Quickswitcher.Controllers.Setup
 
         private void DeviceFound()
         {
-            ChangeView(new DeviceFoundView(_detectedAudioDevice, SaveFoundDevice, DisplayFirstStep));
+            ChangeView(new DeviceFoundView(_detectedAudioDevice, SaveFoundDevice, RestartWizard));
+        }
+
+        private void RestartWizard()
+        {
+            CancelWizard();
+            DisplayFirstStep();
         }
 
         private void SaveFoundDevice()
