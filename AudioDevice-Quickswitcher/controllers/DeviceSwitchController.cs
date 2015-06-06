@@ -15,11 +15,18 @@ namespace AudioDevice_Quickswitcher.controllers
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly KeyboardHook _hook = new KeyboardHook();
 
+        /// <summary>
+        /// Creates a new device switch controller, which will handle switch requests.
+        /// </summary>
+        /// <param name="audioDeviceManager">Audio device manager who controls the system's devices</param>
         public DeviceSwitchController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
         }
 
+        /// <summary>
+        /// Begins listening for hot-key presses, signifying that the user wishies to switch to another audio deice.
+        /// </summary>
         public void ListenForSwitchRequest()
         {
             // TODO support others
@@ -30,7 +37,7 @@ namespace AudioDevice_Quickswitcher.controllers
             _hook.RegisterHotKey(modifierKeys, hotKey);
         }
 
-        public void HotKeyPressed(object sender, KeyPressedEventArgs e)
+        private void HotKeyPressed(object sender, KeyPressedEventArgs e)
         {
             SwitchAudioDevice();
         }
