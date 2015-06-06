@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace AudioDevice_Quickswitcher.utilities.keyboardHook
+namespace AudioDevice_Quickswitcher.utilities.KeyboardHook
 {
     /// <summary>
     /// The enumeration of possible modifiers.

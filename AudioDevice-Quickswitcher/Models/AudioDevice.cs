@@ -1,6 +1,6 @@
 ﻿using System.Xml.Serialization;
 
-namespace AudioDevice_Quickswitcher.model
+namespace AudioDevice_Quickswitcher.Models
 {
     /// <summary>
     /// Represents an audio device in Microsoft Windows 7+.

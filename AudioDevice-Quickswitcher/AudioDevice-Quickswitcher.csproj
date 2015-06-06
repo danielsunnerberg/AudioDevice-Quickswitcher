@@ -80,44 +80,44 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
       <DependentUpon>ChosenAudioDevices.settings</DependentUpon>
     </Compile>
-    <Compile Include="controllers\ViewController.cs" />
-    <Compile Include="views\Setup\DeviceSetup\DeviceDisconnectedListener.cs" />
-    <Compile Include="controllers\DeviceSwitchController.cs" />
-    <Compile Include="controllers\SettingsController.cs" />
-    <Compile Include="controllers\setup\DeviceSetupController.cs" />
-    <Compile Include="model\AudioDevices.cs" />
-    <Compile Include="utilities\AudioDeviceManager.cs" />
-    <Compile Include="model\AudioDevice.cs" />
+    <Compile Include="Controllers\ViewController.cs" />
+    <Compile Include="Views\Setup\DeviceSetup\DeviceDisconnectedListener.cs" />
+    <Compile Include="Controllers\DeviceSwitchController.cs" />
+    <Compile Include="Controllers\SettingsController.cs" />
+    <Compile Include="Controllers\Setup\DeviceSetupController.cs" />
+    <Compile Include="Models\AudioDevices.cs" />
+    <Compile Include="Utilities\AudioDeviceManager.cs" />
+    <Compile Include="Models\AudioDevice.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="utilities\keyboardHook\KeyboardHook.cs" />
-    <Compile Include="utilities\keyboardHook\ModifierKeys.cs" />
-    <Compile Include="utilities\ProcessExecutor.cs" />
-    <Compile Include="views\Setup\DeviceSetup\DeviceFoundView.cs">
+    <Compile Include="Utilities\KeyboardHook\KeyboardHook.cs" />
+    <Compile Include="Utilities\KeyboardHook\ModifierKeys.cs" />
+    <Compile Include="Utilities\ProcessExecutor.cs" />
+    <Compile Include="Views\Setup\DeviceSetup\DeviceFoundView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Setup\DeviceSetup\DeviceFoundView.Designer.cs">
+    <Compile Include="Views\Setup\DeviceSetup\DeviceFoundView.Designer.cs">
       <DependentUpon>DeviceFoundView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Setup\DeviceSetup\DisconnectDeviceView.cs">
+    <Compile Include="Views\Setup\DeviceSetup\DisconnectDeviceView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Setup\DeviceSetup\DisconnectDeviceView.Designer.cs">
+    <Compile Include="Views\Setup\DeviceSetup\DisconnectDeviceView.Designer.cs">
       <DependentUpon>DisconnectDeviceView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\Setup\DeviceSetup\ReconnectDeviceView.cs">
+    <Compile Include="Views\Setup\DeviceSetup\ReconnectDeviceView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\Setup\DeviceSetup\ReconnectDeviceView.Designer.cs">
+    <Compile Include="Views\Setup\DeviceSetup\ReconnectDeviceView.Designer.cs">
       <DependentUpon>ReconnectDeviceView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\SettingsView.cs">
+    <Compile Include="Views\SettingsView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\SettingsView.Designer.cs">
+    <Compile Include="Views\SettingsView.Designer.cs">
       <DependentUpon>SettingsView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\ISetupListener.cs" />
+    <Compile Include="Views\ISetupListener.cs" />
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -128,16 +128,16 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="views\Setup\DeviceSetup\DeviceFoundView.resx">
+    <EmbeddedResource Include="Views\Setup\DeviceSetup\DeviceFoundView.resx">
       <DependentUpon>DeviceFoundView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Setup\DeviceSetup\DisconnectDeviceView.resx">
+    <EmbeddedResource Include="Views\Setup\DeviceSetup\DisconnectDeviceView.resx">
       <DependentUpon>DisconnectDeviceView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\Setup\DeviceSetup\ReconnectDeviceView.resx">
+    <EmbeddedResource Include="Views\Setup\DeviceSetup\ReconnectDeviceView.resx">
       <DependentUpon>ReconnectDeviceView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\SettingsView.resx">
+    <EmbeddedResource Include="Views\SettingsView.resx">
       <DependentUpon>SettingsView.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="AudioDevice-Quickswitcher_TemporaryKey.pfx" />
@@ -176,7 +176,7 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="dependencies\EndPointController_forked.exe">
+    <Content Include="Dependencies\EndPointController_forked.exe">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
     <Content Include="icon.ico" />

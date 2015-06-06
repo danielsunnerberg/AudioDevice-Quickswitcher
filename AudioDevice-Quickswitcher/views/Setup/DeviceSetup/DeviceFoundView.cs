@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Windows.Forms;
-using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.Models;
 
-namespace AudioDevice_Quickswitcher.views.DeviceSetup
+namespace AudioDevice_Quickswitcher.Views.Setup.DeviceSetup
 {
     public partial class DeviceFoundView : Form
     {

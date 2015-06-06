@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Xml.Serialization;
 
-namespace AudioDevice_Quickswitcher.model
+namespace AudioDevice_Quickswitcher.Models
 {
     /// <summary>
     /// A wrapper class for AudioDevice to allow serialization of multiple instances.

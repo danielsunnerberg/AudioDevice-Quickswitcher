@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AudioDevice_Quickswitcher.views
+namespace AudioDevice_Quickswitcher.Views.Setup.DeviceSetup
 {
     public partial class ReconnectDeviceView : Form
     {

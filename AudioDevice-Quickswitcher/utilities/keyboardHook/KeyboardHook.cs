@@ -2,7 +2,7 @@
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 
-namespace AudioDevice_Quickswitcher.utilities.keyboardHook
+namespace AudioDevice_Quickswitcher.utilities.KeyboardHook
 {
     /// <summary>
     /// Source: http://stackoverflow.com/a/27309185/1113435

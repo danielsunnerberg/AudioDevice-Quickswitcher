@@ -1,4 +1,5 @@
 ﻿using System.Windows.Forms;
+using AudioDevice_Quickswitcher.Controllers.Setup;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
 using Microsoft.Win32;

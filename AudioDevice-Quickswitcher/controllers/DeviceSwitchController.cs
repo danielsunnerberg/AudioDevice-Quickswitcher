@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.Models;
 using AudioDevice_Quickswitcher.utilities;
-using AudioDevice_Quickswitcher.utilities.keyboardHook;
+using AudioDevice_Quickswitcher.utilities.KeyboardHook;
 
 namespace AudioDevice_Quickswitcher.controllers
 {

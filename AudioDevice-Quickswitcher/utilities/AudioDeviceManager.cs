@@ -1,8 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
-using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.Models;
 
 namespace AudioDevice_Quickswitcher.utilities
 {

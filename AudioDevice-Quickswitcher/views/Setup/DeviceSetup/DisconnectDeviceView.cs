@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace AudioDevice_Quickswitcher.views.DeviceSetup
+namespace AudioDevice_Quickswitcher.Views.Setup.DeviceSetup
 {
     public partial class DisconnectDeviceView : Form
     {

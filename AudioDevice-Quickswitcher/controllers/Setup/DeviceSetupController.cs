@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
-using AudioDevice_Quickswitcher.model;
+using AudioDevice_Quickswitcher.controllers;
+using AudioDevice_Quickswitcher.Models;
 using AudioDevice_Quickswitcher.utilities;
-using AudioDevice_Quickswitcher.views;
-using AudioDevice_Quickswitcher.views.DeviceSetup;
+using AudioDevice_Quickswitcher.Views.Setup.DeviceSetup;
 
-namespace AudioDevice_Quickswitcher.controllers
+namespace AudioDevice_Quickswitcher.Controllers.Setup
 {
     class DeviceSetupController : ViewController<Form>, IDeviceDisconnectedListener
     {
