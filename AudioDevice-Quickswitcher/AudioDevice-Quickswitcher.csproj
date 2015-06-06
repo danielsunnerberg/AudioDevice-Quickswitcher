@@ -63,6 +63,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Sunnerberg.Autostarter">
+      <HintPath>..\packages\Autostarter.1.0.0\lib\Sunnerberg.Autostarter.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -145,6 +148,7 @@
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>ChosenAudioDevices.Designer.cs</LastGenOutput>
     </None>
+    <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

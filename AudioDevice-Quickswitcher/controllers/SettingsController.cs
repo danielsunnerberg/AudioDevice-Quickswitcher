@@ -2,7 +2,7 @@
 using AudioDevice_Quickswitcher.Controllers.Setup;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
-using Microsoft.Win32;
+using Sunnerberg.Autostarter;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
@@ -12,7 +12,7 @@ namespace AudioDevice_Quickswitcher.controllers
     class SettingsController : ViewController<SettingsView>, ISetupListener
     {
         private readonly AudioDeviceManager _audioDeviceManager;
-        private readonly RegistryKey _autostartRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
+        private readonly Autostarter _autostarter = new Autostarter(Application.ExecutablePath);
 
         /// <summary>
         /// Creates a new settings controller which will locate and identify audio devices by the specified audio device manager.
@@ -21,8 +21,7 @@ namespace AudioDevice_Quickswitcher.controllers
         public SettingsController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
-            bool autorunEnabled = _autostartRegistryKey.GetValue("ApplicationName") != null;
-            View = new SettingsView(autorunEnabled, this);
+            View = new SettingsView(_autostarter.IsEnabled(), this);
         }
 
         /// <summary>
@@ -67,11 +66,11 @@ namespace AudioDevice_Quickswitcher.controllers
         {
             if (status)
             {
-                _autostartRegistryKey.SetValue("ApplicationName", Application.ExecutablePath);
+                _autostarter.Enable();
             }
             else
             {
-                _autostartRegistryKey.DeleteValue("ApplicationName");
+                _autostarter.Disable();
             }
         }
 
