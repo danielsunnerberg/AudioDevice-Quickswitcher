@@ -9,6 +9,9 @@ using AudioDevice_Quickswitcher.Views.Setup.DeviceSetup;
 
 namespace AudioDevice_Quickswitcher.Controllers.Setup
 {
+    /// <summary>
+    /// Responsible for identifying the devices which the user will switch between.
+    /// </summary>
     class DeviceSetupController : ViewController<Form>, IDeviceDisconnectedListener
     {
         private readonly AudioDeviceManager _audioDeviceManager;
@@ -17,6 +20,10 @@ namespace AudioDevice_Quickswitcher.Controllers.Setup
         private IList<AudioDevice> _preConnectAudioDevices;
         private AudioDevice _detectedAudioDevice;
 
+        /// <summary>
+        /// Creates a new device setup controller which will identify audio devices using the specified instance.
+        /// </summary>
+        /// <param name="audioDeviceManager">manager which the controller will use to identify audio devices</param>
         public DeviceSetupController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
@@ -24,6 +31,9 @@ namespace AudioDevice_Quickswitcher.Controllers.Setup
             _reconnectTimer.Interval = 300;
         }
 
+        /// <summary>
+        /// Displays the wizard's first step.
+        /// </summary>
         public void DisplayFirstStep()
         {
             ChangeView(new DisconnectDeviceView(this));
@@ -39,6 +49,9 @@ namespace AudioDevice_Quickswitcher.Controllers.Setup
             View.Show();
         }
 
+        /// <summary>
+        /// Callback for when the user has disconnected the device and is ready to proceed.
+        /// </summary>
         public void DeviceDisconnected()
         {
             _preConnectAudioDevices = _audioDeviceManager.GetDevices();
