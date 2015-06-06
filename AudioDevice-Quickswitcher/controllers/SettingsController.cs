@@ -29,7 +29,7 @@ namespace AudioDevice_Quickswitcher.controllers
 
         public void SetupDevices()
         {
-            new SetupController(_audioDeviceManager).DisplayFirstStep();
+            new DeviceSetupController(_audioDeviceManager).DisplayFirstStep();
         }
 
         public void SetupKeybinds()

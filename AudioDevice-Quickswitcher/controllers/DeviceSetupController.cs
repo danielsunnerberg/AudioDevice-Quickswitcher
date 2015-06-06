@@ -5,10 +5,11 @@ using System.Windows.Forms;
 using AudioDevice_Quickswitcher.model;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
+using AudioDevice_Quickswitcher.views.DeviceSetup;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class SetupController : ViewController<Form>, IDeviceDisconnectedListener
+    class DeviceSetupController : ViewController<Form>, IDeviceDisconnectedListener
     {
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly Timer _reconnectTimer = new Timer();
@@ -16,7 +17,7 @@ namespace AudioDevice_Quickswitcher.controllers
         private IList<AudioDevice> _preConnectAudioDevices;
         private AudioDevice _detectedAudioDevice;
 
-        public SetupController(AudioDeviceManager audioDeviceManager)
+        public DeviceSetupController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
             _reconnectTimer.Tick += ListenForReconnect;

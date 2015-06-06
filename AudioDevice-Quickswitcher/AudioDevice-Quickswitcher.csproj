@@ -83,7 +83,7 @@
     <Compile Include="controllers\ViewController.cs" />
     <Compile Include="views\DeviceDisconnectedListener.cs" />
     <Compile Include="controllers\DeviceSwitchController.cs" />
-    <Compile Include="controllers\SettingsController.cs" />
+    <Compile Include="controllers\DeviceSetupController.cs" />
     <Compile Include="controllers\SetupController.cs" />
     <Compile Include="model\AudioDevices.cs" />
     <Compile Include="utilities\AudioDeviceManager.cs" />

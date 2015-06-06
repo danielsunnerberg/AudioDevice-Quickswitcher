@@ -21,7 +21,7 @@ namespace AudioDevice_Quickswitcher
             var deviceSwitchController = new DeviceSwitchController(audioDeviceManager);
             deviceSwitchController.ListenForSwitchRequest();
 
-            var settingsController = new SettingsController(audioDeviceManager);
+            var settingsController = new DeviceSetupController(audioDeviceManager);
             settingsController.ShowOnFirstRun();
             Application.Run(settingsController.View);
         }
