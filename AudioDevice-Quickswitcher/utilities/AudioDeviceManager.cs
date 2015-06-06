@@ -11,8 +11,17 @@ namespace AudioDevice_Quickswitcher.utilities
     /// </summary>
     internal class AudioDeviceManager
     {
-        private static readonly string SERVICE_OUTPUT_FORMAT =
-            @"<device><index>%d</index><friendlyName>%s</friendlyName><state>%d</state><default>%d</default><description>%s</description><interfaceFriendlyName>%s</interfaceFriendlyName><deviceId>%s</deviceId></device>";
+        private static readonly string ServiceOutputFormat =
+            @"<device>
+                <index>%d</index>
+                <friendlyName>%s</friendlyName>
+                <state>%d</state>
+                <default>%d</default>
+                <description>%s</description>
+                <interfaceFriendlyName>%s</interfaceFriendlyName>
+                <deviceId>%s
+                </deviceId>
+            </device>".Replace("\n", "").Replace("\r", "").Replace(" ", "");
 
         private readonly ProcessExecutor _processExecutor;
 
@@ -31,8 +40,8 @@ namespace AudioDevice_Quickswitcher.utilities
         /// <returns>All connected audio devices</returns>
         public IList<AudioDevice> GetDevices()
         {
-            string serviceResponse = _processExecutor.Query("-f " + SERVICE_OUTPUT_FORMAT);
-            string devicesXml = String.Format("<devices>{0}</devices>", serviceResponse);
+            string serviceResponse = _processExecutor.Query("-f " + ServiceOutputFormat);
+            string devicesXml = string.Format("<devices>{0}</devices>", serviceResponse);
 
             XmlSerializer serializer = new XmlSerializer(typeof (AudioDevices));
             var devicesWrapper = (AudioDevices) serializer.Deserialize(new StringReader(devicesXml));
