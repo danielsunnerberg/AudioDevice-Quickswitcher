@@ -1,4 +1,4 @@
-﻿namespace AudioDevice_Quickswitcher.views
+﻿namespace AudioDevice_Quickswitcher.views.DeviceSetup
 {
     partial class DisconnectDeviceView
     {

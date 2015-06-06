@@ -81,10 +81,10 @@
       <DependentUpon>ChosenAudioDevices.settings</DependentUpon>
     </Compile>
     <Compile Include="controllers\ViewController.cs" />
-    <Compile Include="views\DeviceDisconnectedListener.cs" />
+    <Compile Include="views\Setup\DeviceSetup\DeviceDisconnectedListener.cs" />
     <Compile Include="controllers\DeviceSwitchController.cs" />
-    <Compile Include="controllers\DeviceSetupController.cs" />
-    <Compile Include="controllers\SetupController.cs" />
+    <Compile Include="controllers\SettingsController.cs" />
+    <Compile Include="controllers\setup\DeviceSetupController.cs" />
     <Compile Include="model\AudioDevices.cs" />
     <Compile Include="utilities\AudioDeviceManager.cs" />
     <Compile Include="model\AudioDevice.cs" />
@@ -93,22 +93,22 @@
     <Compile Include="utilities\keyboardHook\KeyboardHook.cs" />
     <Compile Include="utilities\keyboardHook\ModifierKeys.cs" />
     <Compile Include="utilities\ProcessExecutor.cs" />
-    <Compile Include="views\DeviceFoundView.cs">
+    <Compile Include="views\Setup\DeviceSetup\DeviceFoundView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\DeviceFoundView.Designer.cs">
+    <Compile Include="views\Setup\DeviceSetup\DeviceFoundView.Designer.cs">
       <DependentUpon>DeviceFoundView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\DisconnectDeviceView.cs">
+    <Compile Include="views\Setup\DeviceSetup\DisconnectDeviceView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\DisconnectDeviceView.Designer.cs">
+    <Compile Include="views\Setup\DeviceSetup\DisconnectDeviceView.Designer.cs">
       <DependentUpon>DisconnectDeviceView.cs</DependentUpon>
     </Compile>
-    <Compile Include="views\ReconnectDeviceView.cs">
+    <Compile Include="views\Setup\DeviceSetup\ReconnectDeviceView.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="views\ReconnectDeviceView.Designer.cs">
+    <Compile Include="views\Setup\DeviceSetup\ReconnectDeviceView.Designer.cs">
       <DependentUpon>ReconnectDeviceView.cs</DependentUpon>
     </Compile>
     <Compile Include="views\SettingsView.cs">
@@ -128,13 +128,13 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="views\DeviceFoundView.resx">
+    <EmbeddedResource Include="views\Setup\DeviceSetup\DeviceFoundView.resx">
       <DependentUpon>DeviceFoundView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\DisconnectDeviceView.resx">
+    <EmbeddedResource Include="views\Setup\DeviceSetup\DisconnectDeviceView.resx">
       <DependentUpon>DisconnectDeviceView.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="views\ReconnectDeviceView.resx">
+    <EmbeddedResource Include="views\Setup\DeviceSetup\ReconnectDeviceView.resx">
       <DependentUpon>ReconnectDeviceView.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="views\SettingsView.resx">
