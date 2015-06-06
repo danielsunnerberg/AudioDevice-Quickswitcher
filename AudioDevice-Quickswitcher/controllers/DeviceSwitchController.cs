@@ -57,7 +57,7 @@ namespace AudioDevice_Quickswitcher.controllers
             _audioDeviceManager.SetDeviceAsDefault(audioDevice);
         }
 
-        private void ShowErrorDialog(string title, string message)
+        private static void ShowErrorDialog(string title, string message)
         {
             MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }

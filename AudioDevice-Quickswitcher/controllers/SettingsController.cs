@@ -1,18 +1,14 @@
-﻿using System;
-using System.Windows.Forms;
+﻿using System.Windows.Forms;
 using AudioDevice_Quickswitcher.utilities;
 using AudioDevice_Quickswitcher.views;
 using Microsoft.Win32;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class SettingsController : Controller, ISetupListener
+    class SettingsController : ViewController<SettingsView>, ISetupListener
     {
-
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly RegistryKey _autostartRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
-
-        private new readonly SettingsView View;
 
         public SettingsController(AudioDeviceManager audioDeviceManager)
         {

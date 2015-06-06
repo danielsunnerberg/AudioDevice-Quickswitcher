@@ -8,15 +8,13 @@ using AudioDevice_Quickswitcher.views;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
-    class SetupController : Controller, IDeviceDisconnectedListener
+    class SetupController : ViewController<Form>, IDeviceDisconnectedListener
     {
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly Timer _reconnectTimer = new Timer();
 
         private IList<AudioDevice> _preConnectAudioDevices;
         private AudioDevice _detectedAudioDevice;
-
-        private Form _currentView;
 
         public SetupController(AudioDeviceManager audioDeviceManager)
         {
@@ -32,12 +30,12 @@ namespace AudioDevice_Quickswitcher.controllers
 
         private void ChangeView(Form newForm)
         {
-            if (_currentView != null)
+            if (View != null)
             {
-                _currentView.Hide();
+                View.Hide();
             }
-            _currentView = newForm;
-            _currentView.Show();
+            View = newForm;
+            View.Show();
         }
 
         public void DeviceDisconnected()
@@ -74,7 +72,7 @@ namespace AudioDevice_Quickswitcher.controllers
             ChosenAudioDevices.Default.alternateDefaultDeviceId = _detectedAudioDevice.DeviceId;
             ChosenAudioDevices.Default.Save();
 
-            _currentView.Hide();
+            View.Hide();
         }
 
     }
