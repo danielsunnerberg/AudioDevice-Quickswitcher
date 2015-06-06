@@ -12,7 +12,6 @@ namespace AudioDevice_Quickswitcher.controllers
     /// </summary>
     class DeviceSwitchController
     {
-
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly KeyboardHook _hook = new KeyboardHook();
 
@@ -38,18 +37,29 @@ namespace AudioDevice_Quickswitcher.controllers
 
         private void SwitchAudioDevice()
         {
-            IList<AudioDevice> devices = _audioDeviceManager.GetDevices();
             string defaultDeviceId = ChosenAudioDevices.Default.originalDefaultDeviceId;
             string alternateDeviceId = ChosenAudioDevices.Default.alternateDefaultDeviceId;
-            AudioDevice audioDevice = devices.FirstOrDefault(d => (d.DeviceId == defaultDeviceId || d.DeviceId == alternateDeviceId) && !d.IsDefault);
 
-            if (defaultDeviceId == null || alternateDeviceId == null || audioDevice == null)
+            if (defaultDeviceId == null || alternateDeviceId == null)
             {
-                MessageBox.Show("Failed to change default audio device. Try re-running the setup.", "An error occured", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorDialog("Found no stored audio devices", "Found no stored audio devices. You must run the setup before being able to switch between devices.");
+                return;
+            }
+
+            IList<AudioDevice> devices = _audioDeviceManager.GetDevices();
+            AudioDevice audioDevice = devices.FirstOrDefault(d => (d.DeviceId == defaultDeviceId || d.DeviceId == alternateDeviceId) && !d.IsDefault);
+            if (audioDevice == null)
+            {
+                ShowErrorDialog("Failed to switch between audio devices", "Failed to switch between audio devices. Make sure the devices selected during setup are connected.\nIf this problem persists, try re-running the setup.");
                 return;
             }
 
             _audioDeviceManager.SetDeviceAsDefault(audioDevice);
+        }
+
+        private void ShowErrorDialog(string title, string message)
+        {
+            MessageBox.Show(message, title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
 
     }

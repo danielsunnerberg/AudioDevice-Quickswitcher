@@ -16,9 +16,13 @@ namespace AudioDevice_Quickswitcher.utilities
 
         private readonly ProcessExecutor _processExecutor;
 
-        public AudioDeviceManager(string endPointControllerPath)
+        /// <summary>
+        /// Creates a new audio device manager, wrapping the AudioEndPointController executable found at the specified path. 
+        /// </summary>
+        /// <param name="audioEndPointControllerPath">Path to AudioEndPointController executable</param>
+        public AudioDeviceManager(string audioEndPointControllerPath)
         {
-            _processExecutor = new ProcessExecutor(endPointControllerPath);
+            _processExecutor = new ProcessExecutor(audioEndPointControllerPath);
         }
 
         /// <summary>
@@ -35,6 +39,10 @@ namespace AudioDevice_Quickswitcher.utilities
             return devicesWrapper.Devices;
         }
 
+        /// <summary>
+        /// Sets the specified audio device as the system default.
+        /// </summary>
+        /// <param name="audioDevice">Device to be set as system default</param>
         public void SetDeviceAsDefault(AudioDevice audioDevice)
         {
             _processExecutor.Start(string.Format(" {0}", audioDevice.Index));
