@@ -6,11 +6,18 @@ using Microsoft.Win32;
 
 namespace AudioDevice_Quickswitcher.controllers
 {
+    /// <summary>
+    /// Responsible for managing the application's settings.
+    /// </summary>
     class SettingsController : ViewController<SettingsView>, ISetupListener
     {
         private readonly AudioDeviceManager _audioDeviceManager;
         private readonly RegistryKey _autostartRegistryKey = Registry.CurrentUser.OpenSubKey("SOFTWARE\\Microsoft\\Windows\\CurrentVersion\\Run", true);
 
+        /// <summary>
+        /// Creates a new settings controller which will locate and identify audio devices by the specified audio device manager.
+        /// </summary>
+        /// <param name="audioDeviceManager"></param>
         public SettingsController(AudioDeviceManager audioDeviceManager)
         {
             _audioDeviceManager = audioDeviceManager;
@@ -18,6 +25,9 @@ namespace AudioDevice_Quickswitcher.controllers
             View = new SettingsView(autorunEnabled, this);
         }
 
+        /// <summary>
+        /// Show the settings-window when the program is being run for the first time.
+        /// </summary>
         public void ShowOnFirstRun()
         {
             var chosenAudioDevices = ChosenAudioDevices.Default;
@@ -28,16 +38,26 @@ namespace AudioDevice_Quickswitcher.controllers
             }
         }
 
+        /// <summary>
+        /// Display the setup devices-wizard.
+        /// </summary>
         public void SetupDevices()
         {
             new DeviceSetupController(_audioDeviceManager).DisplayFirstStep();
         }
 
+        /// <summary>
+        /// Displays the setup keybinds-wizard.
+        /// </summary>
         public void SetupKeybinds()
         {
             MessageBox.Show("Not yet implemented. Use CTRL+ALT+F12.");
         }
 
+        /// <summary>
+        /// Sets whether the application should start automatically upon boot or not. 
+        /// </summary>
+        /// <param name="status">whether the application should start automatically upon boot or not</param>
         public void ShouldStartAutomatically(bool status)
         {
             ChangeAutoStartStatus(status);
