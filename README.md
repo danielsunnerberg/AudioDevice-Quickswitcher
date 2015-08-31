@@ -2,7 +2,7 @@
 Allows the user to quickly switch between selected audio devices through global hotkeys.
 <br />This removes the need to physically disconnect the headset when wanting to play through speakers and so on.
 
-Tested for Windows 7, 8 10.
+Tested for Windows 7, 8 and 10.
 
 
 ## Installation
